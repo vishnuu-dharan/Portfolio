@@ -86,8 +86,10 @@
     const phrases = [
       'Software Architecture.',
       'Autonomous AI Agents.',
-      'Multimodal Vector RAG.',
-      'Voice AI Engines.',
+      'Multimodal RAG Systems.',
+      'Voice AI & Speech Analytics.',
+    
+      
     ];
     let phraseIdx = 0;
     let charIdx   = 0;

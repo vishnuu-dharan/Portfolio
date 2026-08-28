@@ -6,8 +6,6 @@ export const personalInfo = {
   typedPhrases: [
     "Software Architecture.",
     "Autonomous AI Agents.",
-    "Multimodal Vector RAG.",
-    "Voice AI Engines.",
     "Agentic Workflows.",
     "Full-Stack AI Apps."
   ],
