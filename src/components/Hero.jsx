@@ -7,29 +7,32 @@ const Hero = memo(function Hero() {
   const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
+    let timer;
     const currentPhrase = personalInfo.typedPhrases[phraseIdx];
     const speed = isDeleting ? 45 : 85;
-    let holdTimer;
 
-    const timer = setTimeout(() => {
-      if (!isDeleting) {
-        setText(currentPhrase.slice(0, text.length + 1));
-        if (text.length + 1 === currentPhrase.length) {
-          holdTimer = setTimeout(() => setIsDeleting(true), 2200);
-        }
+    if (isDeleting) {
+      if (text.length === 0) {
+        setIsDeleting(false);
+        setPhraseIdx((prev) => (prev + 1) % personalInfo.typedPhrases.length);
       } else {
-        setText(currentPhrase.slice(0, text.length - 1));
-        if (text.length - 1 === 0) {
-          setIsDeleting(false);
-          setPhraseIdx((prev) => (prev + 1) % personalInfo.typedPhrases.length);
-        }
+        timer = setTimeout(() => {
+          setText(currentPhrase.substring(0, text.length - 1));
+        }, speed);
       }
-    }, speed);
+    } else {
+      if (text.length === currentPhrase.length) {
+        timer = setTimeout(() => {
+          setIsDeleting(true);
+        }, 2200);
+      } else {
+        timer = setTimeout(() => {
+          setText(currentPhrase.substring(0, text.length + 1));
+        }, speed);
+      }
+    }
 
-    return () => {
-      clearTimeout(timer);
-      if (holdTimer) clearTimeout(holdTimer);
-    };
+    return () => clearTimeout(timer);
   }, [text, isDeleting, phraseIdx]);
 
   return (

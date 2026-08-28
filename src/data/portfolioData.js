@@ -7,7 +7,9 @@ export const personalInfo = {
     "Software Architecture.",
     "Autonomous AI Agents.",
     "Multimodal Vector RAG.",
-    "Voice AI Engines."
+    "Voice AI Engines.",
+    "Agentic Workflows.",
+    "Full-Stack AI Apps."
   ],
   bio: "Specializing in autonomous multi-agent recruitment architectures, multimodal RAG retrieval systems, voice AI evaluation engines, and production-grade full-stack LLM orchestration pipelines.",
   email: "vishnudharan.ad@gmail.com",
